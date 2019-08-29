@@ -1,6 +1,7 @@
 import layer
 import dataload
 import timeoutalarm
+import time
 
 np = layer.np
 
