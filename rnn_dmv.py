@@ -134,6 +134,7 @@ def test_all(logfile, lockfile, timeoutTime):
         for ilb, iub in testranges:
             print ('testing ', ilb, '-->', iub)
             print ('testing ', ilb, '-->', iub, file=fout, flush=True)
+            start_time = time.time()
             try:
                 with timeoutalarm.Timeout(timeoutTime,lockfile):
                     npos , nneg , nunknown = test_range(ilb, iub, weightsObj.init_state, weightsObj.W_rec, weightsObj.W_in, weightsObj.b_rec, 50, 50, weightsObj.W_out, weightsObj.b_out, \
@@ -151,6 +152,10 @@ def test_all(logfile, lockfile, timeoutTime):
                 print (e)
                 print ('ERROR', file=fout, flush=True)
                 print (e, file=fout, flush=True)
+            end_time = time.time()
+
+            print ('Time : ', end_time-start_time)
+            print ('Time : ', end_time-start_time, file=fout, flush=True)
             
 
 
