@@ -163,6 +163,6 @@ def test_all(logfile, lockfile, timeoutTime):
 
 
 if __name__ == "__main__":
-    test_all('t1.log','t1.lock',4)
+    test_all('t1.log','t1.lock',6000)
         
 
