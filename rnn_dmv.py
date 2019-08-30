@@ -131,8 +131,8 @@ def test_all(logfile, lockfile, timeoutTime):
     with open(logfile,'w') as fout:
         for ilb, iub in testranges:
             # clear the lock
-            with open(lockfile,'w') as fout:
-                fout.write('continue')
+            with open(lockfile,'w') as f_lock:
+                f_lock.write('continue')
             print ('testing ', ilb, '-->', iub)
             print ('testing ', ilb, '-->', iub, file=fout, flush=True)
             start_time = time.time()
