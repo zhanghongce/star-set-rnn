@@ -127,12 +127,12 @@ def test_range(ilb, iub, init_state, W_rec, W_in, b, Nstimulus, Nsetttle , W_out
 def test_all(logfile, lockfile, timeoutTime):
     weightsObj = dataload.LOADER(modelpath, 10)
 
-    # clear the lock
-    with open(lockfile,'w') as fout:
-        fout.write('continue')
 
     with open(logfile,'w') as fout:
         for ilb, iub in testranges:
+            # clear the lock
+            with open(lockfile,'w') as fout:
+                fout.write('continue')
             print ('testing ', ilb, '-->', iub)
             print ('testing ', ilb, '-->', iub, file=fout, flush=True)
             start_time = time.time()
